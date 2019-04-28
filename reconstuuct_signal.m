@@ -1,0 +1,16 @@
+clc; clear all; close all;
+Ts=0.0002;
+n=-25:1:25;
+nTs=n*Ts;
+x=exp(-1000*abs(nTs));
+Dt=0.0002;
+t=-0.005:Dt:0.005;
+fs=5000;
+xt=x*sinc(fs*(ones(length(n),1)*t-nTs'*ones(1,length(t))));
+figure;
+stem(n,x);
+hold on;
+plot(-25:25,xt);
+xlabel('Time===>');
+ylabel('X(t)');
+title('RECONSTRUCTED SIGNAL');
